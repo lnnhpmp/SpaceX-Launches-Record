@@ -75,7 +75,7 @@ function App() {
   // calculate the number of total pages
   const totalPages = Math.ceil(launchesData.length / LAUNCHES_PER_PAGE)
 
-  // show intersection of searched & filtered & launches table data
+  // handle intersection of searched & filtered & table data
   useEffect(() => {
     const filteredData = [sortedData, originalData]
     if (searchTerm.length) {
@@ -114,7 +114,6 @@ function App() {
           <LaunchesTable
             currentPageLaunches={currentPageLaunches}
             launchesData={launchesData}
-            setLaunchesData={setLaunchesData}
             setSortedData={setSortedData}
           />
           <Pages setCurrentPage={setCurrentPage} totalPages={totalPages} />

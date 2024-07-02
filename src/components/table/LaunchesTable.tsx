@@ -8,21 +8,18 @@ import { Launch } from '../../types'
 type Props = {
   currentPageLaunches: Launch[]
   launchesData: Launch[]
-  setLaunchesData: (data: Launch[]) => void
-  setSortedData: any
+  setSortedData: (data: Launch[]) => void
 }
 
 export const LaunchesTable = ({
   currentPageLaunches,
   launchesData,
-  setLaunchesData,
   setSortedData
 }: Props) => {
   return (
     <TableContainer component={Paper}>
       <LaunchesTableHead
         launchesData={launchesData}
-        setLaunchesData={setLaunchesData}
         setSortedData={setSortedData}
       />
       <TableBody>

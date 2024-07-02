@@ -9,7 +9,6 @@ describe('LaunchesTable', () => {
       <LaunchesTable
         currentPageLaunches={dummyLaunchesData}
         launchesData={dummyLaunchesData}
-        setLaunchesData={jest.fn()}
         setSortedData={jest.fn()}
       />,
     )

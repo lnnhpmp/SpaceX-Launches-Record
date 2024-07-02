@@ -13,7 +13,6 @@ type Props = {
   label: string
   sortBy?: SortBy
   launchesData?: Launch[]
-  setLaunchesData?: (data: Launch[]) => void
   width?: string
   setSortedData?: any
 }
@@ -21,7 +20,6 @@ type Props = {
 export const LaunchesTableColumn = ({
   label,
   sortBy,
-  setLaunchesData,
   launchesData,
   width,
   setSortedData,
