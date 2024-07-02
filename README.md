@@ -288,7 +288,7 @@ Generalise `LaunchesTable` to make it applicable for more types of data.
 
 ### Testing
 
-Unit tests and e2e tests are not added because of time limit. I plan to add `jest` unit tests to test the functionalities and `cypress` e2e tests to test the flow. Test coverage is important.
+Unit tests and e2e tests are not fully added because of time limit. I plan to add `jest` unit tests to test the functionalities and components. Add `cypress` e2e tests to test the flow. Test coverage is important.
 
 ### Mobile UI
 
