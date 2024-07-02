@@ -9,7 +9,6 @@
     - [Pagination](#pagination)
     - [Filter by date range](#filter-by-date-range)
     - [Show only successful launches](#show-only-successful-launches)
-    - [Combine all functionalities](#combine-all-functionalities)
   - [Build](#build)
   - [Project Implementation Process](#project-implementation-process)
     - [Data structure analysis](#data-structure-analysis)
@@ -104,10 +103,6 @@ Click on the arrow icon to trigger sorting. First time click only does ascending
 ### Show only successful launches
 
 ![Demo GIF](https://github.com/lnnhpmp/RocketLaunch/blob/main/my-app/doc/success.gif)
-
-### Combine all functionalities
-
-![Demo GIF](https://github.com/lnnhpmp/RocketLaunch/blob/main/my-app/doc/combine.gif)
 
 ## Build
 
