@@ -5,10 +5,10 @@ import { LaunchesTableColumn } from './LaunchesTableColumn'
 
 type Props = {
   launchesData: Launch[]
-  setSortedData: (data: Launch[]) => void
+  setSortRule: any
 }
 
-export const LaunchesTableHead = ({ launchesData, setSortedData }: Props) => {
+export const LaunchesTableHead = ({ launchesData, setSortRule }: Props) => {
   return (
     <TableHead>
       <TableRow>
@@ -17,14 +17,14 @@ export const LaunchesTableHead = ({ launchesData, setSortedData }: Props) => {
           sortBy={'name'}
           launchesData={launchesData}
           label={'Name'}
-          setSortedData={setSortedData}
+          setSortRule={setSortRule}
         />
         <LaunchesTableColumn
           sortBy={'localDate'}
           launchesData={launchesData}
           label={'Date'}
           width={'8%'}
-          setSortedData={setSortedData}
+          setSortRule={setSortRule}
         />
         <LaunchesTableColumn label={'Succeeded'} width={'8%'} />
         <LaunchesTableColumn label={'Details'} width={'30%'} />

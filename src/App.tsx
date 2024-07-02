@@ -9,6 +9,7 @@ import { DateRange, Launch } from './types'
 import { onSearch } from './utils/onSearch'
 import { filterByDateRange, filterBySuccessInfo } from './utils/filterFunctions'
 import { Typography } from '@mui/material'
+import { sortByOrder } from './utils/sortByOrder'
 
 const Header = styled.div`
   padding: 2% 10%;
@@ -35,7 +36,7 @@ function App() {
   )
   const [dateRange, setDateRange] = useState<DateRange>()
   const [sortedData, setSortedData] = useState<Array<Launch>>([])
-
+  const [sortRule, setSortRule] = useState<any>()
   const fetchLaunchesData = async () => {
     try {
       const response = await fetch('https://api.spacexdata.com/v4/launches', {
@@ -77,7 +78,11 @@ function App() {
 
   // handle intersection of searched & filtered & table data
   useEffect(() => {
-    const filteredData = [sortedData, originalData]
+    const filteredData = [originalData]
+    if (sortRule?.length == 2) {
+      const sortedData = sortByOrder(originalData, sortRule[0], sortRule[1])
+      filteredData.push(sortedData)
+    }
     if (searchTerm.length) {
       filteredData.push(onSearch(searchTerm, originalData))
     }
@@ -94,7 +99,7 @@ function App() {
     )
     // reset page to 1 so that pagination can work
     setCurrentPage(1)
-  }, [searchTerm, showSuccessfulLaunches, dateRange, originalData, sortedData])
+  }, [searchTerm, showSuccessfulLaunches, dateRange, originalData, sortRule])
 
   return (
     <>
@@ -114,7 +119,7 @@ function App() {
           <LaunchesTable
             currentPageLaunches={currentPageLaunches}
             launchesData={launchesData}
-            setSortedData={setSortedData}
+            setSortRule={setSortRule}
           />
           <Pages setCurrentPage={setCurrentPage} totalPages={totalPages} />
         </>
