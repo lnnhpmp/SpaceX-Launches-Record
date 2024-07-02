@@ -6,9 +6,14 @@ import { LaunchesTableColumn } from './LaunchesTableColumn'
 type Props = {
   launchesData: Launch[]
   setLaunchesData: (data: Launch[]) => void
+  setSortedData: any
 }
 
-export const LaunchesTableHead = ({ setLaunchesData, launchesData }: Props) => {
+export const LaunchesTableHead = ({
+  setLaunchesData,
+  launchesData,
+  setSortedData,
+}: Props) => {
   return (
     <TableHead>
       <TableRow>
@@ -25,6 +30,7 @@ export const LaunchesTableHead = ({ setLaunchesData, launchesData }: Props) => {
           launchesData={launchesData}
           label={'Date'}
           width={'8%'}
+          setSortedData={setSortedData}
         />
         <LaunchesTableColumn label={'Succeeded'} width={'8%'} />
         <LaunchesTableColumn label={'Details'} width={'30%'} />

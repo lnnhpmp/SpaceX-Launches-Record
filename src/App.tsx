@@ -34,6 +34,7 @@ function App() {
     false,
   )
   const [dateRange, setDateRange] = useState<DateRange>()
+  const [sortedData, setSortedData] = useState<Array<Launch>>([])
 
   const fetchLaunchesData = async () => {
     try {
@@ -61,6 +62,7 @@ function App() {
       }))
       setLaunchesData(mappedData)
       setOriginalData(mappedData)
+      setSortedData(mappedData)
     })
   }, [])
 
@@ -75,7 +77,7 @@ function App() {
 
   // show intersection of searched & filtered & launches table data
   useEffect(() => {
-    const filteredData = [originalData]
+    const filteredData = [sortedData, originalData]
     if (searchTerm.length) {
       filteredData.push(onSearch(searchTerm, originalData))
     }
@@ -92,7 +94,7 @@ function App() {
     )
     // reset page to 1 so that pagination can work
     setCurrentPage(1)
-  }, [searchTerm, showSuccessfulLaunches, dateRange, originalData])
+  }, [searchTerm, showSuccessfulLaunches, dateRange, originalData, sortedData])
 
   return (
     <>
@@ -113,6 +115,7 @@ function App() {
             currentPageLaunches={currentPageLaunches}
             launchesData={launchesData}
             setLaunchesData={setLaunchesData}
+            setSortedData={setSortedData}
           />
           <Pages setCurrentPage={setCurrentPage} totalPages={totalPages} />
         </>

@@ -15,6 +15,7 @@ type Props = {
   launchesData?: Launch[]
   setLaunchesData?: (data: Launch[]) => void
   width?: string
+  setSortedData?: any
 }
 
 export const LaunchesTableColumn = ({
@@ -23,6 +24,7 @@ export const LaunchesTableColumn = ({
   setLaunchesData,
   launchesData,
   width,
+  setSortedData,
 }: Props) => {
   const [sortDirection, setSortDirection] = useState<SortDirection | undefined>(
     undefined,
@@ -36,14 +38,12 @@ export const LaunchesTableColumn = ({
           onClick={() => {
             if (!sortDirection) {
               setSortDirection('asc')
-              setLaunchesData?.(sortByOrder(launchesData, 'asc', sortBy))
+              setSortedData?.(sortByOrder(launchesData, 'asc', sortBy))
               return
             }
             const newSortDirection = sortDirection === 'asc' ? 'desc' : 'asc'
-            setLaunchesData?.(
-              sortByOrder(launchesData, newSortDirection, sortBy),
-            )
             setSortDirection(newSortDirection)
+            setSortedData?.(sortByOrder(launchesData, newSortDirection, sortBy))
           }}
         />
       )}
