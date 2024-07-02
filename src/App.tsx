@@ -30,7 +30,7 @@ function App() {
   const [isLoading, setIsLoading] = useState('loading')
   const [currentPage, setCurrentPage] = useState(1)
   const [searchTerm, setSearchTerm] = useState('')
-  const [showSuccessfulLaunches, setShowSuccessfulLaunches] = useState(false)
+  const [showSuccessfulLaunches, setShowSuccessfulLaunches] = useState<boolean>(false)
   const [dateRange, setDateRange] = useState<DateRange>()
 
   const fetchLaunchesData = async () => {
@@ -101,6 +101,7 @@ function App() {
             <Filters
               setShowSuccessfulLaunches={setShowSuccessfulLaunches}
               setDateRange={setDateRange}
+              showSuccessfulLaunches={showSuccessfulLaunches}
             />
           </Header>
           <LaunchesTable

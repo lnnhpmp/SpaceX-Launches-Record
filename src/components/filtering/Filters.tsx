@@ -15,15 +15,23 @@ const DataRangeContainer = styled.div`
 type Props = {
   setShowSuccessfulLaunches: (value: boolean) => void
   setDateRange: (value: DateRange) => void
+  showSuccessfulLaunches: boolean
 }
 
-export const Filters = ({ setShowSuccessfulLaunches, setDateRange }: Props) => {
+export const Filters = ({
+  setShowSuccessfulLaunches,
+  setDateRange,
+  showSuccessfulLaunches,
+}: Props) => {
   return (
     <FiltersWrapper>
       <DataRangeContainer>
-        <DateRangePickerComponent setDateRange={setDateRange}/>
+        <DateRangePickerComponent setDateRange={setDateRange} />
       </DataRangeContainer>
-      <ToggleSwitch setShowSuccessfulLaunches={setShowSuccessfulLaunches} />
+      <ToggleSwitch
+        setShowSuccessfulLaunches={setShowSuccessfulLaunches}
+        showSuccessfulLaunches={showSuccessfulLaunches}
+      />
     </FiltersWrapper>
   )
 }
