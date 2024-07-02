@@ -51,6 +51,9 @@ my-app
 └── src
     ├── components
         ├── filtering
+            ├── DateRangePickerComponent.tsx
+            ├── Filters.tsx
+            ├── ToggleSwitch.tsx
         ├── table
             ├── LaunchesTable.tsx
             ├── LaunchesTableColumn.tsx
