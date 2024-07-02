@@ -274,6 +274,10 @@ For `Succeeded`, it's a boolean value. Hence, I used switch toggle to do the fil
 
 ### Testing
 
+I added unit tests to test the funtionalities (sort, search, filter) and basic table rendering (if `LaunchesTable` renders columns and rows on current page).
+
+This helped with debugging. If it's daily work, I'd love to do it in a TDD way to implement the funtionalities.
+
 ### Responsive UI
 
 For this part, I didn't invest much. Only made table column width and some paddings in percentage value instead of fixed pixels.
@@ -295,7 +299,7 @@ Generalise `LaunchesTable` to make it applicable for more types of data.
 
 ### Testing
 
-Unit tests and e2e tests are not fully added because of time limit. I plan to add `jest` unit tests to test the functionalities and components. Add `cypress` e2e tests to test the flow. Test coverage is important.
+Unit tests and e2e tests are not fully covered because of time limit. I plan to add more `jest` unit tests to test the components. Add `cypress` e2e tests to test the flow. Test coverage is important.
 
 ### Mobile UI
 
