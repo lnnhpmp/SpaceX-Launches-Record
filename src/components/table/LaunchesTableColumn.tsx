@@ -1,6 +1,6 @@
 import TableSortLabel from '@mui/material/TableSortLabel'
 import { useState } from 'react'
-import { SortDirection, SortBy, Launch, SortRule } from '../../types'
+import { SortDirection, SortBy, SortRule } from '../../types'
 import TableCell from '@mui/material/TableCell'
 import { styled } from 'styled-components'
 

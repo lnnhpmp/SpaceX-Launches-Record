@@ -1,6 +1,6 @@
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
-import { Launch, SortRule } from '../../types'
+import { SortRule } from '../../types'
 import { LaunchesTableColumn } from './LaunchesTableColumn'
 
 type Props = {
