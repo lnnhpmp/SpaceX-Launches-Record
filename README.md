@@ -25,7 +25,7 @@
         - [Filter by date range](#filter-by-date-range-1)
         - [Filter by success information](#filter-by-success-information)
     - [Testing](#testing)
-      - [Combile multiple filtering conditions](#combile-multiple-filtering-conditions)
+      - [Combile multiple conditions](#combile-multiple-conditions)
     - [Responsive UI](#responsive-ui)
   - [TODOs](#todos)
     - [Scalability](#scalability)
@@ -279,7 +279,7 @@ I added unit tests to test the funtionalities (sort, search, filter) and basic t
 
 This helped with debugging. If it's daily work, I'd love to do it in a TDD way to implement the funtionalities.
 
-#### Combile multiple filtering conditions
+#### Combile multiple conditions
 
 All functionalities (search, sort, filter) are triggered in corresponded components. Each one returns a `filtered/sorted result`. The intersection of the `filtered/sorted result`s are computed in `App.tsx`. In the meanwhile, I store the `originalData`. For example when user searched some text then cleared it out and press enter, it should show the original table.
 
