@@ -64,17 +64,16 @@ function App() {
     })
   }, [])
 
-  // calculate the number of total pages
   const indexOfLastLaunch = currentPage * LAUNCHES_PER_PAGE
   const indexOfFirstLaunch = indexOfLastLaunch - LAUNCHES_PER_PAGE
   const currentPageLaunches = launchesData.slice(
     indexOfFirstLaunch,
     indexOfLastLaunch,
   )
+  // calculate the number of total pages
   const totalPages = Math.ceil(launchesData.length / LAUNCHES_PER_PAGE)
 
-  // show intersection of searched & filtered & original data
-  // reset page to 1 so that pagination can work
+  // show intersection of searched & filtered & launches table data
   useEffect(() => {
     const filteredData = [originalData]
     if (searchTerm.length) {
@@ -87,9 +86,11 @@ function App() {
       filteredData.push(filterByDateRange(originalData, dateRange))
     }
 
+    // calculate arrays intersection
     setLaunchesData(
       filteredData.reduce((a, b) => a.filter((c) => b.includes(c))),
     )
+    // reset page to 1 so that pagination can work
     setCurrentPage(1)
   }, [searchTerm, showSuccessfulLaunches, dateRange, originalData])
 
