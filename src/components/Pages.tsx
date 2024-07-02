@@ -12,11 +12,17 @@ const Page = styled(Pagination)`
   }
 `
 
-type Props = { setCurrentPage: (n: number) => void; totalPages: number }
+type Props = {
+  setCurrentPage: (n: number) => void
+  totalPages: number
+  currentPage: number
+}
 
-export const Pages = ({ setCurrentPage, totalPages }: Props) => {
+export const Pages = ({ setCurrentPage, totalPages, currentPage }: Props) => {
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setCurrentPage(value)
   }
-  return <Page count={totalPages} color="primary" onChange={handleChange} />
+  return (
+    <Page count={totalPages} color="primary" onChange={handleChange} page={currentPage} />
+  )
 }

@@ -26,8 +26,8 @@ const Title = styled.div`
 const LAUNCHES_PER_PAGE = 30
 
 function App() {
-  const [originalData, setOriginalData] = useState<Array<Launch>>([])
-  const [launchesData, setLaunchesData] = useState<Array<Launch>>([])
+  const [originalData, setOriginalData] = useState<Launch[]>([])
+  const [launchesData, setLaunchesData] = useState<Launch[]>([])
   const [isLoading, setIsLoading] = useState('loading')
   const [currentPage, setCurrentPage] = useState(1)
   const [searchTerm, setSearchTerm] = useState('')
@@ -36,6 +36,7 @@ function App() {
   )
   const [dateRange, setDateRange] = useState<DateRange>()
   const [sortRule, setSortRule] = useState<SortRule | undefined>(undefined)
+
   const fetchLaunchesData = async () => {
     try {
       const response = await fetch('https://api.spacexdata.com/v4/launches', {
@@ -120,7 +121,11 @@ function App() {
             currentPageLaunches={currentPageLaunches}
             setSortRule={setSortRule}
           />
-          <Pages setCurrentPage={setCurrentPage} totalPages={totalPages} />
+          <Pages
+            setCurrentPage={setCurrentPage}
+            totalPages={totalPages}
+            currentPage={currentPage}
+          />
         </>
       )}
       {isLoading === 'loading' && <h1>loading....</h1>}
