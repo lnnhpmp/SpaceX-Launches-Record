@@ -63,6 +63,8 @@ my-app
         ├── onSearch.ts
         ├── sortByOrder.ts
     ├── App.tsx
+└── doc
+└── public
 ```
 
 ## Demo
