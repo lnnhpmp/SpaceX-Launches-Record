@@ -94,12 +94,6 @@ Type `Enter` or click search icon on the right to search text.
 
 ## Build
 
-Enter react project folder
-
-```
-cd my-app
-```
-
 Install dependencies
 
 ```
