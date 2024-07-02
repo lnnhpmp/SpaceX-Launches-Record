@@ -74,6 +74,7 @@ function App() {
   const totalPages = Math.ceil(launchesData.length / LAUNCHES_PER_PAGE)
 
   // show intersection of searched & filtered & original data
+  // reset page to 1 so that pagination can work
   useEffect(() => {
     const filteredData = [originalData]
     if (searchTerm.length) {
@@ -89,6 +90,7 @@ function App() {
     setLaunchesData(
       filteredData.reduce((a, b) => a.filter((c) => b.includes(c))),
     )
+    setCurrentPage(1)
   }, [searchTerm, showSuccessfulLaunches, dateRange, originalData])
 
   return (
