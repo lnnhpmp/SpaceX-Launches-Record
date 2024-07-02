@@ -18,12 +18,12 @@
       - [youtube link](#youtube-link)
     - [Handle page status](#handle-page-status)
     - [Search](#search-1)
-    - [Pagination](#pagination-1)
     - [Sort](#sort-1)
     - [Filtering](#filtering)
       - [Filter by date range](#filter-by-date-range-1)
       - [Filter by success information](#filter-by-success-information)
     - [Combile multiple conditions](#combile-multiple-conditions)
+    - [Pagination](#pagination-1)
     - [Testing](#testing)
     - [Responsive UI](#responsive-ui)
   - [TODOs](#todos)
@@ -203,39 +203,12 @@ Only the `loaded` status is implemented with launches table. The other two are f
 
 More detailed error handlings are not implemented yet. Added in [TODOs](#todos).
 
-
 ### Search
 
 Since it's a search function implemented on client side. I assume we won't handle massive data. Hence I decided to allow users search text in all string columns (`Name`, `Date`, `Details`, `Youtube Link`) over all pages. User can search a text by `Enter` or click on the search icon. Also I made the search case insensitive. So all strings would be compared in lowercase. The logic is:
 
 ```
 name.lowerCase().includes(searchTerm) || localDate.lowerCase().includes(searchTerm) || launchDetails.lowerCase().includes(searchTerm) || youtubeLink.lowerCase().includes(searchTerm)
-```
-
-### Pagination
-
-I used MUI `Pagination` component to implement pages so that user won't be overwhelmed by massive table rows. Also I assume we render 30 launches per page.
-
-Compute the total pages number according to equation:
-
-```
-totalPages = ceil(launchesNumber / 30)
-```
-
-The launches shown on `i`th page (`currentPageLaunches`) is calculated by the following logic (code under `App.tsx`):
-
-```
-indexOfLastLaunch = i * 30
-indexOfFirstLaunch = indexOfLastLaunch - 30
-currentPageLaunches = data[indexOfFirstLaunch to indexOfLastLaunch]
-```
-
-When filtering data, the total pages number could be smaller than current page number. In this case, I simply reset the `currentPage` to 1.
-
-```
-if (ceil(launchesNumber / 30) < currentPage) {
-    set currentPage 1
-}
 ```
 
 ### Sort
@@ -282,6 +255,32 @@ For `Succeeded`, it's a boolean value. Hence, I used switch toggle to do the fil
 ### Combile multiple conditions
 
 All functionalities (search, sort, filter) are triggered in corresponded components. Each one returns a `filtered/sorted result`. The intersection of the `filtered/sorted result`s are computed in `App.tsx`. In the meanwhile, I store the `originalData`. For example when user searched some text then cleared it out and press enter, it should show the original table.
+
+### Pagination
+
+I used MUI `Pagination` component to implement pages so that user won't be overwhelmed by massive table rows. Also I assume we render 30 launches per page.
+
+Compute the total pages number according to equation:
+
+```
+totalPages = ceil(launchesNumber / 30)
+```
+
+The launches shown on `i`th page (`currentPageLaunches`) is calculated by the following logic (code under `App.tsx`):
+
+```
+indexOfLastLaunch = i * 30
+indexOfFirstLaunch = indexOfLastLaunch - 30
+currentPageLaunches = data[indexOfFirstLaunch to indexOfLastLaunch]
+```
+
+When filtering data, the total pages number could be smaller than current page number. In this case, I simply reset the `currentPage` to 1.
+
+```
+if (ceil(launchesNumber / 30) < currentPage) {
+    set currentPage 1
+}
+```
 
 ### Testing
 
