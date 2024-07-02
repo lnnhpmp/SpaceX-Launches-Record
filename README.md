@@ -24,8 +24,8 @@
       - [Filtering](#filtering)
         - [Filter by date range](#filter-by-date-range-1)
         - [Filter by success information](#filter-by-success-information)
-    - [Testing](#testing)
       - [Combile multiple conditions](#combile-multiple-conditions)
+    - [Testing](#testing)
     - [Responsive UI](#responsive-ui)
   - [TODOs](#todos)
     - [Scalability](#scalability)
@@ -273,15 +273,15 @@ else {
 
 For `Succeeded`, it's a boolean value. Hence, I used switch toggle to do the filtering. I only make this function to filter the launches which succeeded. When the toggle is on, only succeessful launches are shown. When the toggle is off, show all data.
 
+#### Combile multiple conditions
+
+All functionalities (search, sort, filter) are triggered in corresponded components. Each one returns a `filtered/sorted result`. The intersection of the `filtered/sorted result`s are computed in `App.tsx`. In the meanwhile, I store the `originalData`. For example when user searched some text then cleared it out and press enter, it should show the original table.
+
 ### Testing
 
 I added unit tests to test the funtionalities (sort, search, filter) and basic table rendering (if `LaunchesTable` renders columns and rows on current page).
 
 This helped with debugging. If it's daily work, I'd love to do it in a TDD way to implement the funtionalities.
-
-#### Combile multiple conditions
-
-All functionalities (search, sort, filter) are triggered in corresponded components. Each one returns a `filtered/sorted result`. The intersection of the `filtered/sorted result`s are computed in `App.tsx`. In the meanwhile, I store the `originalData`. For example when user searched some text then cleared it out and press enter, it should show the original table.
 
 ### Responsive UI
 
