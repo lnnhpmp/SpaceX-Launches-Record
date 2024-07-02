@@ -23,8 +23,8 @@ export const LaunchesTable = ({
         setLaunchesData={setLaunchesData}
       />
       <TableBody>
-        {currentPageLaunches.map((launch: Launch) => (
-          <LaunchesTableRow launch={launch} />
+        {currentPageLaunches.map((launch: Launch, index: number) => (
+          <LaunchesTableRow launch={launch} key={index} />
         ))}
       </TableBody>
     </TableContainer>

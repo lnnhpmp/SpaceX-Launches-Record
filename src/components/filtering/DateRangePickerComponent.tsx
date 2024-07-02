@@ -9,10 +9,7 @@ type Props = {
 
 export const DateRangePickerComponent = ({ setDateRange }: Props) => {
   const formatDate = (d: Date | null) => {
-    if (d) {
-      return d.toLocaleDateString().split('/').reverse().join('-')
-    }
-    return ''
+    return d ? d.toLocaleDateString().split('/').reverse().join('-') : ''
   }
 
   return (

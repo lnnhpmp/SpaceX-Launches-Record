@@ -30,7 +30,9 @@ function App() {
   const [isLoading, setIsLoading] = useState('loading')
   const [currentPage, setCurrentPage] = useState(1)
   const [searchTerm, setSearchTerm] = useState('')
-  const [showSuccessfulLaunches, setShowSuccessfulLaunches] = useState<boolean>(false)
+  const [showSuccessfulLaunches, setShowSuccessfulLaunches] = useState<boolean>(
+    false,
+  )
   const [dateRange, setDateRange] = useState<DateRange>()
 
   const fetchLaunchesData = async () => {
@@ -53,10 +55,11 @@ function App() {
         name: e.name,
         localDate: e.date_local,
         success: e.success,
-        launchDetails: e.details,
-        imgUrl: e.links.patch.small,
-        youtubeLink: e.links.webcast,
+        launchDetails: e.details ?? '',
+        imgUrl: e.links.patch.small ?? '',
+        youtubeLink: e.links.webcast ?? '',
       }))
+      console.log(mappedData.slice(0, 5))
       setLaunchesData(mappedData)
       setOriginalData(mappedData)
     })

@@ -34,12 +34,14 @@ export const LaunchesTableRow = ({ launch }: Props) => {
       <TableCell align="left">{name}</TableCell>
       <TableCell align="left">{localDate.split('T')[0]}</TableCell>
       <TableCell align="left">{success ? 'yes' : 'no'}</TableCell>
-      <TableCell align="left">{launchDetails ?? 'No details'}</TableCell>
+      <TableCell align="left">
+        {launchDetails.length ? launchDetails : 'No details'}
+      </TableCell>
       <TableCell align="left">
         <ImgContainer src={imgUrl} alt="no image available" />
       </TableCell>
       <TableCell align="left">
-        {youtubeLink ? (
+        {youtubeLink.length ? (
           <Link href={youtubeLink}>{youtubeLink}</Link>
         ) : (
           'No youtube video'

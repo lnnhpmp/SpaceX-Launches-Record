@@ -6,7 +6,7 @@ export type Launch = {
   id: number
   name: string
   localDate: string
-  success: boolean
+  success?: boolean
   launchDetails: string
   imgUrl: string
   youtubeLink: string
