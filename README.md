@@ -57,6 +57,7 @@ my-app
             ├── LaunchesTableRow.tsx
         ├── Pages.tsx
         ├── SearchBar.tsx
+    ├── tests
     ├── utils
         ├── filterFunctions.ts
         ├── onSearch.ts
@@ -111,7 +112,13 @@ Run the project
 npm start
 ```
 
-Open http://localhost:3000
+Visit http://localhost:3000 to check the project
+
+Run unit tests
+
+```
+npm test
+```
 
 ## Project Implementation Process
 

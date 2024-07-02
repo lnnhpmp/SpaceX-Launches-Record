@@ -1,6 +1,6 @@
 import { describe, it } from '@jest/globals'
-import { onSearch } from '../utils/onSearch'
-import { Launch } from '../types'
+import { onSearch } from '../../utils/onSearch'
+import { Launch } from '../../types'
 const data = [
   {
     id: 0,
