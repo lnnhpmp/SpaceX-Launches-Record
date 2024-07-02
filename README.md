@@ -312,6 +312,6 @@ The current responsive UI is not mobile friendly enough. Need to be improved.
 
 ## Built with
 
-- React 18 + Typescript
+- React 18 + Typescript + node 20.+
 - [Styled-components](https://styled-components.com/) to create resuable and more organised components.
 - [MUI](https://mui.com/) to easily create user friendly UI.

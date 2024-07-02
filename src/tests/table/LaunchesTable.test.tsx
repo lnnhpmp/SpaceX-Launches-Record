@@ -1,10 +1,10 @@
-import { describe, expect } from '@jest/globals'
+import { describe, it } from '@jest/globals'
 import { LaunchesTable } from '../../components/table/LaunchesTable'
 import { dummyLaunchesData } from '../testHelper'
 import { render } from '@testing-library/react'
 
 describe('LaunchesTable', () => {
-  test('should render table', async () => {
+  it('should render table', async () => {
     const { getByText } = await render(
       <LaunchesTable
         currentPageLaunches={dummyLaunchesData}

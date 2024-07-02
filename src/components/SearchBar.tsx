@@ -10,7 +10,7 @@ export const SearchBar = ({ setSearchTerm }: Props) => {
   const [searchValue, setSearchValue] = useState('')
   const handleSearch = useCallback(() => {
     setSearchTerm(searchValue.trim().toLowerCase())
-  }, [searchValue])
+  }, [searchValue, setSearchTerm])
 
   return (
     <div style={{ display: 'flex', alignItems: 'center' }}>
