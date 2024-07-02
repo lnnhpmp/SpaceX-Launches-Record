@@ -89,7 +89,7 @@ function App() {
     setLaunchesData(
       filteredData.reduce((a, b) => a.filter((c) => b.includes(c))),
     )
-  }, [searchTerm, showSuccessfulLaunches, dateRange])
+  }, [searchTerm, showSuccessfulLaunches, dateRange, originalData])
 
   return (
     <>

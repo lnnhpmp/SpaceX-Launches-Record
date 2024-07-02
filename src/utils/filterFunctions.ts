@@ -17,6 +17,7 @@ export const filterByDateRange = (data: Launch[], dateRange: DateRange) => {
     if (from && to) {
       return localDate >= from && localDate <= to
     }
+    return true
   })
 }
 
