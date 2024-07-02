@@ -8,8 +8,7 @@ describe('LaunchesTable', () => {
     const { getByText } = await render(
       <LaunchesTable
         currentPageLaunches={dummyLaunchesData}
-        launchesData={dummyLaunchesData}
-        setSortedData={jest.fn()}
+        setSortRule={jest.fn()}
       />,
     )
     // render columns

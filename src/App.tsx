@@ -76,12 +76,13 @@ function App() {
 
   // handle intersection of searched & filtered & table data
   useEffect(() => {
-    const filteredData = [originalData]
+    const filteredData = []
     if (sortRule) {
       filteredData.push(
         sortByOrder(originalData, sortRule.sortDirection, sortRule.sortBy),
       )
     }
+    filteredData.push(originalData)
     if (searchTerm.length) {
       filteredData.push(onSearch(searchTerm, originalData))
     }
@@ -94,7 +95,7 @@ function App() {
 
     // calculate arrays intersection
     setLaunchesData(
-      filteredData.reduce((a, b) => a.filter((c) => b.includes(c))),
+      filteredData.reduce((a, b) => a.filter((c: any) => b.includes(c))),
     )
     // reset page to 1 so that pagination can work
     setCurrentPage(1)
