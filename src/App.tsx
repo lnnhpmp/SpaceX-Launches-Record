@@ -98,9 +98,15 @@ function App() {
     setLaunchesData(
       filteredData.reduce((a, b) => a.filter((c: any) => b.includes(c))),
     )
-    // reset page to 1 so that pagination can work
-    setCurrentPage(1)
   }, [searchTerm, showSuccessfulLaunches, dateRange, originalData, sortRule])
+
+  // when the data is filtered, total pages number might decrease
+  // switch to page 1 if current page number doesn't exist any more
+  useEffect(() => {
+    if (Math.ceil(launchesData.length / LAUNCHES_PER_PAGE) < currentPage) {
+      setCurrentPage(1)
+    }
+  }, [launchesData, currentPage])
 
   return (
     <>

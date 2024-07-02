@@ -232,6 +232,14 @@ indexOfFirstLaunch = indexOfLastLaunch - 30
 currentPageLaunches = data[indexOfFirstLaunch to indexOfLastLaunch]
 ```
 
+When filtering data, the total pages number could be smaller than current page number. In this case, I simply reset the `currentPage` to 1.
+
+```
+if (ceil(launchesNumber / 30) < currentPage) {
+    set currentPage 1
+}
+```
+
 #### Sort
 
 I assume we sort data of all pages, not just the data on current page.
