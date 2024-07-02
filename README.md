@@ -58,6 +58,8 @@ my-app
         ├── Pages.tsx
         ├── SearchBar.tsx
     ├── tests
+        ├── table
+        ├── utils
     ├── utils
         ├── filterFunctions.ts
         ├── onSearch.ts
