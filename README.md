@@ -2,9 +2,10 @@
   - [Problem Statement](#problem-statement)
   - [Project Structure](#project-structure)
   - [Demo](#demo)
-    - [Search launches](#search-launches)
-    - [Sort by name](#sort-by-name)
-    - [Sort by local date](#sort-by-local-date)
+    - [Search](#search)
+    - [Sort](#sort)
+      - [Sort by name](#sort-by-name)
+      - [Sort by local date](#sort-by-local-date)
     - [Pagination](#pagination)
     - [Filter by date range](#filter-by-date-range)
     - [Show only successful launches](#show-only-successful-launches)
@@ -17,9 +18,9 @@
       - [youtube link](#youtube-link)
     - [Handle page status](#handle-page-status)
     - [Functionalities](#functionalities)
-      - [Search](#search)
+      - [Search](#search-1)
       - [Pagination](#pagination-1)
-      - [Sort](#sort)
+      - [Sort](#sort-1)
       - [Filtering](#filtering)
         - [Filter by date range](#filter-by-date-range-1)
         - [Filter by success information](#filter-by-success-information)
@@ -65,17 +66,21 @@ my-app
 
 ## Demo
 
-### Search launches
+### Search
 
 Type `Enter` or click search icon on the right to search text.
 
 ![Demo GIF](https://github.com/lnnhpmp/RocketLaunch/blob/main/my-app/doc/search.gif)
 
-### Sort by name
+### Sort
+
+Click on the arrow icon to trigger sorting. First time click only does ascending order sort. Afterwards just reverse.
+
+#### Sort by name
 
 ![Demo GIF](https://github.com/lnnhpmp/RocketLaunch/blob/main/my-app/doc/sort_by_name.gif)
 
-### Sort by local date
+#### Sort by local date
 
 ![Demo GIF](https://github.com/lnnhpmp/RocketLaunch/blob/main/my-app/doc/sort_by_date.gif)
 
