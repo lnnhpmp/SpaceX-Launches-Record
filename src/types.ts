@@ -13,6 +13,6 @@ export type Launch = {
 }
 
 export type DateRange = {
-  from: string
-  to: string
+  from: string | null
+  to: string | null
 }

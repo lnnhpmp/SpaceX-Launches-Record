@@ -59,7 +59,6 @@ function App() {
         imgUrl: e.links.patch.small ?? '',
         youtubeLink: e.links.webcast ?? '',
       }))
-      console.log(mappedData.slice(0, 5))
       setLaunchesData(mappedData)
       setOriginalData(mappedData)
     })

@@ -1,20 +1,22 @@
 import { DateRange, Launch } from '../types'
 
 export const filterByDateRange = (data: Launch[], dateRange: DateRange) => {
+  const { from, to } = dateRange
+  if (!from && !to) {
+    return data
+  }
   return data.filter((launch) => {
     const { localDate } = launch
-    const { from, to } = dateRange
 
-    if (!from && !to) {
-      return true
-    }
-    if (!from) {
+    if (!from && to) {
       return localDate <= to
     }
-    if (!to) {
+    if (from && !to) {
       return localDate >= from
     }
-    return localDate >= from && localDate <= to
+    if (from && to) {
+      return localDate >= from && localDate <= to
+    }
   })
 }
 
