@@ -2,6 +2,11 @@ export type SortDirection = 'asc' | 'desc'
 
 export type SortBy = 'name' | 'localDate'
 
+export type SortRule = {
+  sortDirection: SortDirection
+  sortBy: SortBy
+}
+
 export type Launch = {
   id: number
   name: string

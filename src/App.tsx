@@ -5,7 +5,7 @@ import { Pages } from './components/Pages'
 import { SearchBar } from './components/SearchBar'
 import { Filters } from './components/filtering/Filters'
 import { styled } from 'styled-components'
-import { DateRange, Launch } from './types'
+import { DateRange, Launch, SortRule } from './types'
 import { onSearch } from './utils/onSearch'
 import { filterByDateRange, filterBySuccessInfo } from './utils/filterFunctions'
 import { Typography } from '@mui/material'
@@ -35,8 +35,7 @@ function App() {
     false,
   )
   const [dateRange, setDateRange] = useState<DateRange>()
-  const [sortedData, setSortedData] = useState<Array<Launch>>([])
-  const [sortRule, setSortRule] = useState<any>()
+  const [sortRule, setSortRule] = useState<SortRule | undefined>(undefined)
   const fetchLaunchesData = async () => {
     try {
       const response = await fetch('https://api.spacexdata.com/v4/launches', {
@@ -63,7 +62,6 @@ function App() {
       }))
       setLaunchesData(mappedData)
       setOriginalData(mappedData)
-      setSortedData(mappedData)
     })
   }, [])
 
@@ -79,9 +77,10 @@ function App() {
   // handle intersection of searched & filtered & table data
   useEffect(() => {
     const filteredData = [originalData]
-    if (sortRule?.length == 2) {
-      const sortedData = sortByOrder(originalData, sortRule[0], sortRule[1])
-      filteredData.push(sortedData)
+    if (sortRule) {
+      filteredData.push(
+        sortByOrder(originalData, sortRule.sortDirection, sortRule.sortBy),
+      )
     }
     if (searchTerm.length) {
       filteredData.push(onSearch(searchTerm, originalData))
@@ -118,7 +117,6 @@ function App() {
           </Header>
           <LaunchesTable
             currentPageLaunches={currentPageLaunches}
-            launchesData={launchesData}
             setSortRule={setSortRule}
           />
           <Pages setCurrentPage={setCurrentPage} totalPages={totalPages} />

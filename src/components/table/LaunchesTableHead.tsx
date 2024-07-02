@@ -1,27 +1,24 @@
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
-import { Launch } from '../../types'
+import { Launch, SortRule } from '../../types'
 import { LaunchesTableColumn } from './LaunchesTableColumn'
 
 type Props = {
-  launchesData: Launch[]
-  setSortRule: any
+  setSortRule: (rule: SortRule) => void
 }
 
-export const LaunchesTableHead = ({ launchesData, setSortRule }: Props) => {
+export const LaunchesTableHead = ({ setSortRule }: Props) => {
   return (
     <TableHead>
       <TableRow>
         <LaunchesTableColumn label={'id'} width={'2%'} />
         <LaunchesTableColumn
           sortBy={'name'}
-          launchesData={launchesData}
           label={'Name'}
           setSortRule={setSortRule}
         />
         <LaunchesTableColumn
           sortBy={'localDate'}
-          launchesData={launchesData}
           label={'Date'}
           width={'8%'}
           setSortRule={setSortRule}

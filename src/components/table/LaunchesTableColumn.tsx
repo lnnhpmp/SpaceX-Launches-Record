@@ -1,8 +1,7 @@
 import TableSortLabel from '@mui/material/TableSortLabel'
 import { useState } from 'react'
-import { SortDirection, SortBy, Launch } from '../../types'
+import { SortDirection, SortBy, Launch, SortRule } from '../../types'
 import TableCell from '@mui/material/TableCell'
-import { sortByOrder } from '../../utils/sortByOrder'
 import { styled } from 'styled-components'
 
 const SortToggle = styled(TableSortLabel)`
@@ -12,15 +11,13 @@ const SortToggle = styled(TableSortLabel)`
 type Props = {
   label: string
   sortBy?: SortBy
-  launchesData?: Launch[]
   width?: string
-  setSortRule?: any
+  setSortRule?: (rule: SortRule) => void
 }
 
 export const LaunchesTableColumn = ({
   label,
   sortBy,
-  launchesData,
   width,
   setSortRule,
 }: Props) => {
@@ -36,12 +33,12 @@ export const LaunchesTableColumn = ({
           onClick={() => {
             if (!sortDirection) {
               setSortDirection('asc')
-              setSortRule?.(['asc', sortBy])
+              setSortRule?.({ sortDirection: 'asc', sortBy })
               return
             }
             const newSortDirection = sortDirection === 'asc' ? 'desc' : 'asc'
             setSortDirection(newSortDirection)
-            setSortRule?.([newSortDirection, sortBy])
+            setSortRule?.({ sortDirection: newSortDirection, sortBy })
           }}
         />
       )}

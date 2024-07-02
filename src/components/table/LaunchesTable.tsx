@@ -3,23 +3,20 @@ import TableBody from '@mui/material/TableBody'
 import TableContainer from '@mui/material/TableContainer'
 import Paper from '@mui/material/Paper'
 import { LaunchesTableHead } from './LaunchesTableHead'
-import { Launch } from '../../types'
+import { Launch, SortRule } from '../../types'
 
 type Props = {
   currentPageLaunches: Launch[]
-  launchesData: Launch[]
-  setSortRule: any
+  setSortRule: (rule: SortRule) => void
 }
 
 export const LaunchesTable = ({
   currentPageLaunches,
-  launchesData,
-  setSortRule
+  setSortRule,
 }: Props) => {
   return (
     <TableContainer component={Paper}>
       <LaunchesTableHead
-        launchesData={launchesData}
         setSortRule={setSortRule}
       />
       <TableBody>
