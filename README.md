@@ -17,14 +17,13 @@
       - [image](#image)
       - [youtube link](#youtube-link)
     - [Handle page status](#handle-page-status)
-    - [Functionalities](#functionalities)
-      - [Search](#search-1)
-      - [Pagination](#pagination-1)
-      - [Sort](#sort-1)
-      - [Filtering](#filtering)
-        - [Filter by date range](#filter-by-date-range-1)
-        - [Filter by success information](#filter-by-success-information)
-      - [Combile multiple conditions](#combile-multiple-conditions)
+    - [Search](#search-1)
+    - [Pagination](#pagination-1)
+    - [Sort](#sort-1)
+    - [Filtering](#filtering)
+      - [Filter by date range](#filter-by-date-range-1)
+      - [Filter by success information](#filter-by-success-information)
+    - [Combile multiple conditions](#combile-multiple-conditions)
     - [Testing](#testing)
     - [Responsive UI](#responsive-ui)
   - [TODOs](#todos)
@@ -204,9 +203,8 @@ Only the `loaded` status is implemented with launches table. The other two are f
 
 More detailed error handlings are not implemented yet. Added in [TODOs](#todos).
 
-### Functionalities
 
-#### Search
+### Search
 
 Since it's a search function implemented on client side. I assume we won't handle massive data. Hence I decided to allow users search text in all string columns (`Name`, `Date`, `Details`, `Youtube Link`) over all pages. User can search a text by `Enter` or click on the search icon. Also I made the search case insensitive. So all strings would be compared in lowercase. The logic is:
 
@@ -214,7 +212,7 @@ Since it's a search function implemented on client side. I assume we won't handl
 name.lowerCase().includes(searchTerm) || localDate.lowerCase().includes(searchTerm) || launchDetails.lowerCase().includes(searchTerm) || youtubeLink.lowerCase().includes(searchTerm)
 ```
 
-#### Pagination
+### Pagination
 
 I used MUI `Pagination` component to implement pages so that user won't be overwhelmed by massive table rows. Also I assume we render 30 launches per page.
 
@@ -240,17 +238,17 @@ if (ceil(launchesNumber / 30) < currentPage) {
 }
 ```
 
-#### Sort
+### Sort
 
 I assume we sort data of all pages, not just the data on current page.
 
 We only want to sort either by name or local date. So I added up / down icon to make the sorting order clear (ascending / descending). User can click on the arrow icon to trigger sorting. For first time click, it does ascending sort. After that just always do a reverse.
 
-#### Filtering
+### Filtering
 
 First we need to answer a question: what attribute do we want to use for filtering? In [Search](#search), we already covered searching for texts (which is actually kinda filtering as well). Therefore I would like to add filtering for `Succeeded` and `Date` columns.
 
-##### Filter by date range
+#### Filter by date range
 
 For `Date`, I setup a date range picker by using MUI `DateRangePicker`. It includes the
 
@@ -277,11 +275,11 @@ else {
 }
 ```
 
-##### Filter by success information
+#### Filter by success information
 
 For `Succeeded`, it's a boolean value. Hence, I used switch toggle to do the filtering. I only make this function to filter the launches which succeeded. When the toggle is on, only succeessful launches are shown. When the toggle is off, show all data.
 
-#### Combile multiple conditions
+### Combile multiple conditions
 
 All functionalities (search, sort, filter) are triggered in corresponded components. Each one returns a `filtered/sorted result`. The intersection of the `filtered/sorted result`s are computed in `App.tsx`. In the meanwhile, I store the `originalData`. For example when user searched some text then cleared it out and press enter, it should show the original table.
 
