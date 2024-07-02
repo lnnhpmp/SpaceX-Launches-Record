@@ -24,11 +24,12 @@
       - [Filtering](#filtering)
         - [Filter by date range](#filter-by-date-range-1)
         - [Filter by success information](#filter-by-success-information)
+    - [Testing](#testing)
     - [Responsive UI](#responsive-ui)
   - [TODOs](#todos)
     - [Scalability](#scalability)
     - [Error handling](#error-handling)
-    - [Testing](#testing)
+    - [Testing](#testing-1)
     - [Mobile UI](#mobile-ui)
   - [Built with](#built-with)
 
@@ -270,6 +271,8 @@ else {
 ##### Filter by success information
 
 For `Succeeded`, it's a boolean value. Hence, I used switch toggle to do the filtering. I only make this function to filter the launches which succeeded. When the toggle is on, only succeessful launches are shown. When the toggle is off, show all data.
+
+### Testing
 
 ### Responsive UI
 
